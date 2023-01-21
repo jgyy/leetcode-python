@@ -13,10 +13,10 @@ class Solution:
                     if s[j:j + i] == s[j:j + i][::-1]:
                         return s[j:j + i]
 
+
 if __name__ == '__main__':
     s = 'babad'
     print(Solution().longestPalindrome(s))
-
     s = 'cbbd'
     print(Solution().longestPalindrome(s))
 

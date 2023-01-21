@@ -12,11 +12,11 @@ class Solution:
             current_row += 1 if going_down else -1
         return ''.join(rows)
 
+
 if __name__ == '__main__':
     s = 'PAYPALISHIRING'
     numRows = 3
     print(Solution().convert(s, numRows))
-
     s = 'PAYPALISHIRING'
     numRows = 4
     print(Solution().convert(s, numRows))

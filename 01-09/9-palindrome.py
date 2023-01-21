@@ -5,6 +5,7 @@ class Solution:
         else:
             return str(x) == str(x)[::-1]
 
+
 if __name__ == "__main__":
     s = Solution()
     print(s.isPalindrome(121))

@@ -11,6 +11,7 @@ class Solution:
                     break
         return max_length
 
+
 if __name__ == "__main__":
     print(Solution().lengthOfLongestSubstring("abcabcbb"))
     print(Solution().lengthOfLongestSubstring("bbbbb"))
