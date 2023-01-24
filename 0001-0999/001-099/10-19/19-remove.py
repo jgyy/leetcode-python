@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 
 # Definition for singly-linked list.
 
@@ -22,11 +22,16 @@ class Solution:
         slow.next = slow.next.next
         return head
 
+    def printValue(self, value: Optional[ListNode]) -> List[int]:
+        lis = [value.val]
+        nodeNext = value.next
+        while isinstance(nodeNext, ListNode):
+            lis.append(nodeNext.val)
+            nodeNext = nodeNext.next
+        return lis
+
 
 if __name__ == "__main__":
     l1 = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
-    l2 = ListNode(1, ListNode(3))
-    l3 = ListNode(1, ListNode(2))
-    print(Solution().removeNthFromEnd(l1, 2).val)
-    print(Solution().removeNthFromEnd(l2, 1).val)
-    print(Solution().removeNthFromEnd(l3, 1).val)
+    value = Solution().removeNthFromEnd(l1, 2)
+    print(Solution().printValue(value))

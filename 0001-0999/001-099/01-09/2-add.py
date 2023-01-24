@@ -1,5 +1,4 @@
-from typing import Optional
-
+from typing import Optional, List
 # Definition for singly-linked list.
 
 
@@ -26,9 +25,18 @@ class Solution:
             l1 = l1.next if l1 else None
             l2 = l2.next if l2 else None
         return head
+    
+    def printValue(self, value: Optional[ListNode]) -> List[int]:
+        lis = [value.val]
+        nodeNext = value.next
+        while isinstance(nodeNext, ListNode):
+            lis.append(nodeNext.val)
+            nodeNext = nodeNext.next
+        return lis
 
 
 if __name__ == "__main__":
-    l1 = ListNode(2, ListNode(4, ListNode(3)))
-    l2 = ListNode(5, ListNode(6, ListNode(4)))
-    print(Solution().addTwoNumbers(l1, l2).val)
+    l1 = ListNode(2, ListNode(4, ListNode(3, ListNode(5))))
+    l2 = ListNode(5, ListNode(6, ListNode(4, ListNode(3))))
+    value = Solution().addTwoNumbers(l1, l2)
+    print(Solution().printValue(value))
