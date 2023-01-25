@@ -1,8 +1,8 @@
 from typing import Optional, List
-# Definition for singly-linked list.
 
 
 class ListNode:
+    # Definition for singly-linked list.
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
@@ -25,7 +25,7 @@ class Solution:
             l1 = l1.next if l1 else None
             l2 = l2.next if l2 else None
         return head
-    
+
     def printValue(self, value: Optional[ListNode]) -> List[int]:
         lis = [value.val]
         nodeNext = value.next
