@@ -14,11 +14,6 @@ read4(buf4) # read4 returns 4. Now buf = ['e','f','g','h'], fp points to 'i'
 read4(buf4) # read4 returns 3. Now buf = ['i','j','k',...], fp points to end of file
 """
 
-
-def read4(buf4: List[str]) -> int:
-    return len(buf4)
-
-
 class Solution:
     def read(self, buf, n):
         """
@@ -26,21 +21,19 @@ class Solution:
         :type n: Number of characters to read (int)
         :rtype: The number of actual characters read (int)
         """
-        buf4 = [''] * 4
-        cnt = 0
-        while cnt < n:
-            r = read4(buf4)
-            if not r:
+        buf4 = [' '] * 4
+        i = 0
+        while i < n:
+            count = read4(buf4)
+            if count == 0:
                 break
-            for i in range(r):
-                if cnt == n:
-                    break
-                buf[cnt] = buf4[i]
-                cnt += 1
-        return cnt
+            buf[i:] = buf4[:count]
+            i += count
+        return i
 
+def read4(buf4):
+    return buf4
 
 if __name__ == '__main__':
-    print(Solution().read([*"abc"], 4))
-    print(Solution().read([*"abcde"], 5))
-    print(Solution().read([*"abcdABCD1234"], 12))
+    s = Solution()
+    print(s.read(["a", "b", "c", "d"], 4))
